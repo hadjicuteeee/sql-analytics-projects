@@ -1,0 +1,47 @@
+SELECT * FROM netflix.netflix_2025;
+
+/* Movies that are created between 2020 up */
+SELECT * FROM
+ netflix.netflix_2025 where release_year >= 2020;
+
+/* Movies that has a TV-MA rating */
+SELECT * FROM 
+netflix.netflix_2025 where rating = "TV-MA";
+
+/* Movies that created in Philippine */
+SELECT * FROM 
+netflix.netflix_2025 where country = "Philippine";
+
+/* Movies that has a "love" on its title */
+SELECT * FROM 
+netflix.netflix_2025 where title like '%Love%';
+
+/* Movies that no United States and UK */
+SELECT * FROM 
+netflix.netflix_2025 where country not in ("United States", "United Kingdom");
+
+
+SELECT * FROM 
+netflix.netflix_2025 order by release_year ASC limit 10;
+
+SELECT country, count(*)
+from netflix.netflix_2025
+group by country
+order by count(*) desc
+limit 5;
+
+
+SELECT release_year, count(*) AS `release`
+from netflix.netflix_2025
+group by release_year
+order by release_Year desc;
+
+
+
+SELECT type, count(*) AS `top 5`
+from netflix.netflix_2025
+group by type
+order by count(*) desc
+limit 5;
+
+SELECT * FROM netflix.netflix_2025;
